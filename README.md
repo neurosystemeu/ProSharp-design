@@ -20,15 +20,18 @@ ProSharp is:
 1) There is no file with the source code. Each code is in the IDE and immediately transforms into a representation of the object code model (DOM). Inside, the entire code is represented as a code tree.
 It is possible to export the solution to the file source code and import it from files code, but it is not a recommended method.
 
+2) 
 
 
 # ProSharp language assumptions
-1)
+1) The comments can be compiled into the execution code.
+At first, it may seem strange to insert comments into the code, but:
+a) Is optional
+b) Can be useful in integration and testing. The comment can be displayed on the error console. Thanks to that we have additional information about what is happening in the executed code. It can be used, for example, buissnes process for acceptance loan for a person. Even if the person does not receive a loan, we will get information which has been included in such a decision. 
 
 
 # ProSharp Framework
 1) access to the system takes place through the executive context.
-The execution context includes the object: access to the file system, memory allocation, JIT compilation, exception transfer, hardware context.
-
-The reason for this is that we want to have full control over what is being executet. For example, suppose we want to create a copy of each edit file in the application. The easiest way is to set a new execb contex using our file system access object. (we not create new file system, we create only another layer between file system and application)
+The execution context includes the object: access to the file system, memory allocation, JIT compilation, exception transfer, hardware context.The reason for this is that we want to have full control over what is being executet. For example, suppose we want to create a copy of each edit file in the application. The easiest way is to set a new execb contex using our file system access object. (we not create new file system, we create only another layer between file system and application)
 The point is that we can change the behavior of the external execution code.
+
