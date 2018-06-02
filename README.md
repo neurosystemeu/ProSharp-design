@@ -23,5 +23,12 @@ It is possible to export the solution to the file source code and import it from
 
 
 # ProSharp language assumptions
-1 - 
+1)
 
+
+# ProSharp Framework
+1) access to the system takes place through the executive context.
+The execution context includes the object: access to the file system, memory allocation, JIT compilation, exception transfer, hardware context.
+
+The reason for this is that we want to have full control over what is being executet. For example, suppose we want to create a copy of each edit file in the application. The easiest way is to set a new execb contex using our file system access object. (we not create new file system, we create only another layer between file system and application)
+The point is that we can change the behavior of the external execution code.
