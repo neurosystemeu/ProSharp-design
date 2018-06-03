@@ -20,7 +20,14 @@ ProSharp is:
 1) There is no file with the source code. Each code is in the IDE and immediately transforms into a representation of the object code model (DOM). Inside, the entire code is represented as a code tree.
 It is possible to export the solution to the file source code and import it from files code, but it is not a recommended method.
 
-2) 
+2) everything is serialized and deserialized.
+and everything means everything - data, code and execution
+
+Data serialization is very well used in C #, java and js. The problem is rather to deserialize, but there is no easy way for general transformation / deserialization. In the ProSharp database, the object has the function of easy conversion into serial form and deserialization
+
+Code serialization at a first look strange, useless and even deangerous but can by usefull for example to sent do database 'where expression'. In some case this can by done by 'Serialize.Linq'. Code serialization can by usefull to send execution to another cpu. IMO: Compilation it's kind of serialization.
+
+Execution serialization - this featur usefull in buisness logic and in particular long life process with can by serialized in any time, save to DB and then loaded from dDB and restored. (something like hibernation in Windows, but we hibernete one process)
 
 
 # ProSharp language assumptions
